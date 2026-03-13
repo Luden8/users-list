@@ -15,11 +15,12 @@ export const SearchInput = memo(function SearchInput({ value, onChange }: Search
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Search users by name..."
+        aria-label="Search users by name"
         className="w-full rounded-lg border border-gray-300 bg-white py-2.5 pr-4 pl-10
                    text-gray-900 placeholder-gray-400 outline-none
-                   focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20
+                   focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/20
                    dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100
-                   dark:placeholder-gray-500 dark:focus:border-indigo-400"
+                   dark:placeholder-gray-500 dark:focus-visible:border-indigo-400"
       />
     </div>
   );

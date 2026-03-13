@@ -10,7 +10,7 @@ export const UserCard = memo(function UserCard({ user }: UserCardProps) {
   return (
     <Link
       to={`/users/${user.id}`}
-      className="flex gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+      className="flex gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none dark:border-gray-700 dark:bg-gray-800"
     >
       <img
         src={user.image}

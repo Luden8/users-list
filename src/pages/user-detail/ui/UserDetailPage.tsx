@@ -59,8 +59,11 @@ export function UserDetailPage() {
   return (
     <div>
       <button
-        onClick={() => navigate(-1)}
-        className="mb-6 inline-flex cursor-pointer items-center gap-1 text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+        type="button"
+        onClick={() => navigate("/")}
+        className="mb-6 inline-flex cursor-pointer items-center gap-1 rounded text-sm text-gray-500 transition-colors hover:text-gray-900 active:text-gray-700
+                   focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none
+                   dark:text-gray-400 dark:hover:text-gray-100 dark:active:text-gray-200"
       >
         <ChevronLeftIcon className="h-4 w-4" />
         Back to list

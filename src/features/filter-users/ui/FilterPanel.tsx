@@ -8,7 +8,7 @@ interface FilterPanelProps {
 }
 
 const selectClass =
-  "rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:focus:border-indigo-400";
+  "rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:focus-visible:border-indigo-400";
 
 export const FilterPanel = memo(function FilterPanel({ filters, onChange }: FilterPanelProps) {
   function update(patch: Partial<Filters>) {
@@ -23,6 +23,7 @@ export const FilterPanel = memo(function FilterPanel({ filters, onChange }: Filt
       <select
         value={filters.gender}
         onChange={(e) => update({ gender: e.target.value })}
+        aria-label="Filter by gender"
         className={selectClass}
       >
         <option value="">All genders</option>
@@ -33,6 +34,7 @@ export const FilterPanel = memo(function FilterPanel({ filters, onChange }: Filt
       <select
         value={filters.ageRange}
         onChange={(e) => update({ ageRange: e.target.value })}
+        aria-label="Filter by age range"
         className={selectClass}
       >
         {AGE_RANGES.map((r) => (
@@ -45,6 +47,7 @@ export const FilterPanel = memo(function FilterPanel({ filters, onChange }: Filt
       <select
         value={filters.department}
         onChange={(e) => update({ department: e.target.value })}
+        aria-label="Filter by department"
         className={selectClass}
       >
         <option value="">All departments</option>
@@ -57,6 +60,7 @@ export const FilterPanel = memo(function FilterPanel({ filters, onChange }: Filt
 
       <select
         value={filters.sortBy ? `${filters.sortBy}:${filters.order}` : ""}
+        aria-label="Sort order"
         onChange={(e) => {
           if (!e.target.value) {
             update({ sortBy: "", order: "asc" });
@@ -76,8 +80,9 @@ export const FilterPanel = memo(function FilterPanel({ filters, onChange }: Filt
 
       {hasActiveFilters && (
         <button
+          type="button"
           onClick={() => onChange(DEFAULT_FILTERS)}
-          className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+          className="text-sm text-gray-500 transition-colors hover:text-gray-900 active:text-gray-700 dark:text-gray-400 dark:hover:text-gray-100 dark:active:text-gray-200"
         >
           Clear filters
         </button>

@@ -1,4 +1,5 @@
 import { useTheme, ThemeToggle } from "@/features/theme-toggle";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { AppRouter } from "./router";
 
 export function App() {
@@ -18,7 +19,11 @@ export function App() {
         <ThemeToggle theme={theme} onToggle={toggle} />
       </header>
 
-      <AppRouter />
+      <main>
+        <ErrorBoundary>
+          <AppRouter />
+        </ErrorBoundary>
+      </main>
     </div>
   );
 }
